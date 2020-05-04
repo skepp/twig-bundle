@@ -13,7 +13,7 @@ CHANGELOG
  * removed `twig.exception_controller` configuration option, use `framework.error_controller` option instead
  * removed `ExceptionController`, `PreviewErrorController` and all built-in error templates in favor of the new error renderer mechanism
 
-4.4.9
+4.4.8
 -----
 
  * Add event dispatcher to the config for twig, when given, twig will fire an pre-render event before rendering a template.
