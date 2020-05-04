@@ -50,6 +50,7 @@ class Configuration implements ConfigurationInterface
         $this->addGlobalsSection($rootNode);
         $this->addTwigOptions($rootNode);
         $this->addTwigFormatOptions($rootNode);
+        $this->addEventDispatcher($rootNode);
 
         return $treeBuilder;
     }
@@ -200,6 +201,18 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('thousands_separator')->defaultValue(',')->end()
                     ->end()
                 ->end()
+            ->end()
+        ;
+    }
+
+    private function addEventDispatcher(ArrayNodeDefinition $rootNode)
+    {
+        $rootNode
+            ->children()
+            ->variableNode('event_dispatcher')
+            ->info('When given an event dispatcher, twig will fire a pre-render event, just before rendering a template.')
+            ->defaultNull()->end()
+            ->end()
             ->end()
         ;
     }
